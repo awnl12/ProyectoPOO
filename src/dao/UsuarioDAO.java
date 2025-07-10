@@ -81,16 +81,16 @@ public class UsuarioDAO implements ICrud<Usuario> {
 
     @Override
     public Usuario buscar(int id) {
-        return null; // opcional, para login puede hacerse otro método
+        return null; 
     }
 
     @Override
     public boolean actualizar(Usuario usuario) {
-        return false; // lo puedes agregar si necesitas editar usuarios
+        return false; 
     }
 
     @Override
     public boolean eliminar(int id) {
-        return false; // también opcional
+        return false; 
     }
 }
