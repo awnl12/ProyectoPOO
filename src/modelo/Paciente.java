@@ -1,13 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
-/**
- *
- * @author jorge
- */
-public class Paciente {
+public class Paciente extends Persona {
+    private int edad;
+    private String historialMedico;
+    
+    public Paciente(String nombre, String apellido, String dni, char sexo) {
+        super(nombre, apellido, dni, sexo);
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getHistorialMedico() {
+        return historialMedico;
+    }
+
+    public void setHistorialMedico(String historialMedico) {
+        this.historialMedico = historialMedico;
+    }
+    
+   
+    
     
 }

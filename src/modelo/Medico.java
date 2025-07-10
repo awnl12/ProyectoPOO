@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
-/**
- *
- * @author jorge
- */
-public class Medico {
-    
+
+public class Medico extends Persona {
+    private String especialidad;
+    private String codigoMedico;
+
+    public Medico(String nombre, String apellido, String dni, char sexo) {
+        super(nombre, apellido, dni, sexo);
+    }
 }
