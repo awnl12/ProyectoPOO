@@ -1,22 +1,22 @@
 
 package modelo;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+
 
 public class Cita {
     private int id;
-    private Paciente paciente;
-    private Medico medico;
-    private LocalDate fecha;
-    private LocalTime hora;
+    private String fecha;
+    private String hora;
     private String motivo;
-
-
-    public Cita(int id, Paciente paciente, Medico medico, LocalDate fecha, LocalTime hora, String motivo) {
+    
+    private int idPaciente;
+    private int idMedico;
+    
+    public Cita(){};
+    public Cita(int id, int idPaciente, int idMedico, String fecha, String hora, String motivo) {
         this.id = id;
-        this.paciente = paciente;
-        this.medico = medico;
+        this.idPaciente = idPaciente;
+        this.idMedico = idMedico;
         this.fecha = fecha;
         this.hora = hora;
         this.motivo = motivo;
@@ -30,35 +30,35 @@ public class Cita {
         this.id = id;
     }
 
-    public Paciente getPaciente() {
-        return paciente;
+    public int getIdPaciente() {
+        return idPaciente;
     }
 
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
+    public void setIdPaciente(int idPaciente) {
+        this.idPaciente = idPaciente;
     }
 
-    public Medico getMedico() {
-        return medico;
+    public int getIdMedico() {
+        return idMedico;
     }
 
-    public void setMedico(Medico medico) {
-        this.medico = medico;
+    public void setIdMedico(int idMedico) {
+        this.idMedico = idMedico;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public LocalTime getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(LocalTime hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 

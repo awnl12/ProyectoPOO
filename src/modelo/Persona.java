@@ -15,8 +15,6 @@ public abstract class  Persona {
   
   }
   
-  
-  
     public String getNombre() {
         return nombre;
     }
@@ -39,6 +37,14 @@ public abstract class  Persona {
 
     public void setSexo(char sexo) {
         this.sexo = sexo;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
   

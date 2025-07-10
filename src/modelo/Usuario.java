@@ -3,14 +3,25 @@ package modelo;
 
 
 public class Usuario {
+    private String nombre;
     private String username;
     private String password;
-    private String rol;
+    private int id;
     
-    public Usuario(String username, String password, String rol){
+    public Usuario(String username,String nombre, String password, int id){
     this.username = username;
     this.username = password;
-    this.rol = rol;
+    this.id = id;
+    this.nombre = nombre;
+    }
+    public Usuario(){};
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getUsername() {
@@ -29,12 +40,14 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getRol() {
-        return rol;
+    public int getId() {
+        return id;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setId(int id) {
+        this.id = id;
     }
+
+
     
 }

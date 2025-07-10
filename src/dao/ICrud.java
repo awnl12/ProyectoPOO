@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author jorge
- */
-public class ICrud {
-    
+import java.util.List;
+
+
+public  interface ICrud <T> {
+    List<T> listar();
+    T buscar(int id);
+    boolean insertar(T objeto);
+    boolean actualizar (T objeto);
+    boolean eliminar (int id);
 }
