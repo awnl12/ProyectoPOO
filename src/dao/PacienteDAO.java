@@ -9,7 +9,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PacienteDAO implements ICrud<Paciente> {
+public Paciente buscarPorDni(String dni) {
+    Paciente paciente = null;
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
 
+    try {
+        conn = ConexionDB.getConexion();
+        String sql = "SELECT * FROM paciente WHERE dni = ?";
+        ps = conn.prepareStatement(sql);
+        ps.setString(1, dni);
+        rs = ps.executeQuery();
+
+        if (rs.next()) {
+            paciente = new Paciente(
+                rs.getString("nombre"),
+                rs.getString("apellido"),
+                rs.getString("dni"),
+                rs.getString("sexo").charAt(0)
+            );
+            paciente.setId(rs.getInt("id"));
+            paciente.setEdad(rs.getInt("edad"));
+        }
+
+    } catch (SQLException ex) {
+        System.out.println("Error al buscar paciente por DNI: " + ex.getMessage());
+    } finally {
+        try { if (rs != null) rs.close(); } catch (Exception e) {}
+        try { if (ps != null) ps.close(); } catch (Exception e) {}
+        try { if (conn != null) conn.close(); } catch (Exception e) {}
+    }
+
+    return paciente;
+}
     @Override
     public boolean insertar(Paciente paciente) {
         String sql = "INSERT INTO paciente (nombre, apellido, dni, sexo, edad) VALUES (?, ?, ?, ?, ?)";
@@ -118,5 +151,9 @@ public class PacienteDAO implements ICrud<Paciente> {
             System.out.println("Error al buscar paciente: " + e.getMessage());
         }
         return null;
+ 
     }
+    
+    
+  
 }
