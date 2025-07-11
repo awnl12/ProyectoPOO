@@ -6,7 +6,9 @@ public abstract class  Persona {
   String nombre, apellido, dni;
   char sexo;
   ;
-
+public Persona() {
+        
+    }
   Persona(String nombre, String apellido, String dni, char sexo){
   this.nombre = nombre;
   this.apellido = apellido;

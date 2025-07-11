@@ -2,11 +2,20 @@
 package modelo;
 
 public class Paciente extends Persona {
-    private int edad;
-    private String historialMedico;
-    
+private int id;     
+ private int edad;
+
     public Paciente(String nombre, String apellido, String dni, char sexo) {
         super(nombre, apellido, dni, sexo);
+    }
+    public Paciente (){}
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getEdad() {
@@ -16,16 +25,4 @@ public class Paciente extends Persona {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-
-    public String getHistorialMedico() {
-        return historialMedico;
-    }
-
-    public void setHistorialMedico(String historialMedico) {
-        this.historialMedico = historialMedico;
-    }
-    
-   
-    
-    
 }

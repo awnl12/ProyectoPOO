@@ -23,7 +23,8 @@ public class DBInitializer {
                 nombre VARCHAR(50),
                 apellido VARCHAR(50),
                 dni VARCHAR(15),
-                sexo CHAR(1)
+                sexo CHAR(1),
+                edad char(2)
             );
             """;
 
