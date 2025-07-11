@@ -1,6 +1,7 @@
 
 package vista;
 
+import dao.ConexionDB;
 import dao.UsuarioDAO;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
@@ -12,11 +13,11 @@ import vista.FrmPrincipal;
  */
 public class FrmLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+
     public FrmLogin() {
         initComponents();
+    
+ 
     }
 
     /**

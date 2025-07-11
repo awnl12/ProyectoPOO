@@ -6,6 +6,9 @@ package vista;
 import modelo.Usuario;
 import dao.UsuarioDAO;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import basedatos.DBInitializer;
+import dao.ConexionDB;
 
 public class FrmRegistroUsusario extends javax.swing.JFrame {
 
@@ -14,6 +17,9 @@ public class FrmRegistroUsusario extends javax.swing.JFrame {
      */
     public FrmRegistroUsusario() {
         initComponents();
+        
+    Connection conn = ConexionDB.getConexion();
+    DBInitializer.crearTablas(conn);
     }
 
     /**

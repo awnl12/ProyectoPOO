@@ -52,7 +52,7 @@ public class UsuarioDAO implements ICrud<Usuario> {
     public boolean insertar(Usuario usuario) {
         Connection conn = null;
         PreparedStatement ps = null;
-        String sql = "INSERT INTO usuario (nombre, username, password) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO usuario (username, name, password) VALUES (?, ?, ?)";
 
         try {
             conn = ConexionDB.getConexion();
