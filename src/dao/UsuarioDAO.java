@@ -10,7 +10,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioDAO implements ICrud<Usuario> {
+    
+   public Usuario iniciarSesion(String username, String password) {
+    Usuario u = null;
+    Connection conn = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
 
+    try {
+        conn = ConexionDB.getConexion();
+        String sql = "SELECT * FROM usuario WHERE username = ? AND password = ?";
+        ps = conn.prepareStatement(sql);
+        ps.setString(1, username);
+        ps.setString(2, password);
+
+        rs = ps.executeQuery();
+        if (rs.next()) {
+            u = new Usuario();
+            u.setId(rs.getInt("id")); // Si tienes un campo ID
+            u.setUsername(rs.getString("username"));
+            u.setPassword(rs.getString("password"));
+            // Puedes agregar más campos si tu tabla tiene más (ej. nombre, rol, etc.)
+        }
+
+    } catch (Exception e) {
+        System.out.println("Error al iniciar sesión: " + e.getMessage());
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (conn != null) conn.close();
+        } catch (Exception ex) {
+            System.out.println("Error al cerrar recursos: " + ex.getMessage());
+        }
+    }
+
+    return u;
+}
+    
     @Override
     public boolean insertar(Usuario usuario) {
         Connection conn = null;
