@@ -27,8 +27,6 @@ public class FrmPaciente extends javax.swing.JFrame {
         cmbSexo = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtEdad = new javax.swing.JTextField();
         txtId = new javax.swing.JTextField();
@@ -37,6 +35,8 @@ public class FrmPaciente extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         TxtDniBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        btnElimnar = new javax.swing.JButton();
+        btnActulzr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,20 +70,6 @@ public class FrmPaciente extends javax.swing.JFrame {
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
-            }
-        });
-
-        btnActualizar.setText("Actualizar");
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -126,10 +112,7 @@ public class FrmPaciente extends javax.swing.JFrame {
                             .addComponent(txtEdad)
                             .addComponent(txtNombre))
                         .addGap(80, 80, 80)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnRegistrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -147,25 +130,15 @@ public class FrmPaciente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnRegistrar)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(btnActualizar)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(cmbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnEliminar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(cmbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,20 +148,41 @@ public class FrmPaciente extends javax.swing.JFrame {
                 .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("Registro", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(102, 153, 255));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel6.setText("Buscar Dni");
 
+        TxtDniBuscar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         TxtDniBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtDniBuscarActionPerformed(evt);
             }
         });
 
+        btnBuscar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnElimnar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnElimnar.setText("Eliminar");
+        btnElimnar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElimnarActionPerformed(evt);
+            }
+        });
+
+        btnActulzr.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnActulzr.setText("Actualizar");
+        btnActulzr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActulzrActionPerformed(evt);
             }
         });
 
@@ -201,9 +195,15 @@ public class FrmPaciente extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(56, 56, 56)
                 .addComponent(TxtDniBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(btnBuscar)
                 .addGap(67, 67, 67))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(btnElimnar)
+                .addGap(114, 114, 114)
+                .addComponent(btnActulzr)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,10 +213,14 @@ public class FrmPaciente extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(TxtDniBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnElimnar)
+                    .addComponent(btnActulzr))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab2", jPanel2);
+        jTabbedPane1.addTab("Ajustes", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -264,48 +268,20 @@ public class FrmPaciente extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Datos inválidos o campos vacíos");
         }
+        
+        
+        txtNombre.setText(null);
+        txtApellido.setText(null);
+        txtDni.setText(null);
+        txtEdad.setText(null);
+        cmbSexo.setSelectedItem(null);
+        
+         txtNombre.requestFocus();
+        txtApellido.requestFocus();
+        txtDni.requestFocus();
+        txtEdad.requestFocus();
+        cmbSexo.setSelectedItem(null);
     }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-try {
-            int id = Integer.parseInt(txtId.getText());
-            String nombre = txtNombre.getText();
-            String apellido = txtApellido.getText();
-            String dni = txtDni.getText();
-            char sexo = cmbSexo.getSelectedItem().toString().charAt(0);
-            int edad = Integer.parseInt(txtEdad.getText());
-
-            Paciente paciente = new Paciente(nombre, apellido, dni, sexo);
-            paciente.setId(id);
-            paciente.setEdad(edad);
-
-            PacienteDAO dao = new PacienteDAO();
-            if (dao.actualizar(paciente)) {
-                JOptionPane.showMessageDialog(this, "Paciente actualizado correctamente");
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al actualizar paciente");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al actualizar. Verifique los datos.");
-        }    }//GEN-LAST:event_btnActualizarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-      try {
-            int id = Integer.parseInt(txtId.getText());
-            int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de eliminar?", "Confirmar", JOptionPane.YES_NO_OPTION);
-
-            if (confirm == JOptionPane.YES_OPTION) {
-                PacienteDAO dao = new PacienteDAO();
-                if (dao.eliminar(id)) {
-                    JOptionPane.showMessageDialog(this, "Paciente eliminado correctamente");
-                } else {
-                    JOptionPane.showMessageDialog(this, "Error al eliminar paciente");
-                }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ingrese un ID válido para eliminar");
-        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void TxtDniBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDniBuscarActionPerformed
     
@@ -330,12 +306,55 @@ try {
             txtDni.setText(paciente.getDni());
             cmbSexo.setSelectedItem(String.valueOf(paciente.getSexo()));
             txtEdad.setText(String.valueOf(paciente.getEdad()));
+            JOptionPane.showMessageDialog(null, "Paciente econtrado");
         } else {
             JOptionPane.showMessageDialog(null, "Paciente no encontrado.");
         }
     
 
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnActulzrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActulzrActionPerformed
+     try {
+            int id = Integer.parseInt(txtId.getText());
+            String nombre = txtNombre.getText();
+            String apellido = txtApellido.getText();
+            String dni = txtDni.getText();
+            char sexo = cmbSexo.getSelectedItem().toString().charAt(0);
+            int edad = Integer.parseInt(txtEdad.getText());
+
+            Paciente paciente = new Paciente(nombre, apellido, dni, sexo);
+            paciente.setId(id);
+            paciente.setEdad(edad);
+
+            PacienteDAO dao = new PacienteDAO();
+            if (dao.actualizar(paciente)) {
+                JOptionPane.showMessageDialog(this, "Paciente actualizado correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al actualizar paciente");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al actualizar. Verifique los datos.");
+        } 
+    }//GEN-LAST:event_btnActulzrActionPerformed
+
+    private void btnElimnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimnarActionPerformed
+         try {
+            int id = Integer.parseInt(txtId.getText());
+            int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de eliminar?", "Confirmar", JOptionPane.YES_NO_OPTION);
+
+            if (confirm == JOptionPane.YES_OPTION) {
+                PacienteDAO dao = new PacienteDAO();
+                if (dao.eliminar(id)) {
+                    JOptionPane.showMessageDialog(this, "Paciente eliminado correctamente");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error al eliminar paciente");
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ingrese un ID válido para eliminar");
+        }
+    }//GEN-LAST:event_btnElimnarActionPerformed
 
 
     public static void main(String args[]) {
@@ -372,9 +391,9 @@ try {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TxtDniBuscar;
-    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnActulzr;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnElimnar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<String> cmbSexo;
     private javax.swing.JButton jButton1;
