@@ -6,17 +6,11 @@ import javax.swing.JOptionPane;
 import modelo.Paciente;
 import vista.FrmPrincipal;
 
-/**
- *
- * @author jorge
- */
+
 public class FrmPaciente extends javax.swing.JFrame {
 
- 
     public FrmPaciente() {
-        initComponents();
-       
-    }
+        initComponents();}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -27,7 +21,6 @@ public class FrmPaciente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         txtDni = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -39,6 +32,7 @@ public class FrmPaciente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtEdad = new javax.swing.JTextField();
         txtId = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         TxtDniBuscar = new javax.swing.JTextField();
@@ -125,12 +119,12 @@ public class FrmPaciente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtDni)
                             .addComponent(txtApellido)
-                            .addComponent(txtNombre)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(cmbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 81, Short.MAX_VALUE))
-                            .addComponent(txtEdad))
+                            .addComponent(txtEdad)
+                            .addComponent(txtNombre))
                         .addGap(80, 80, 80)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnRegistrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -315,11 +309,11 @@ try {
 
     private void TxtDniBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDniBuscarActionPerformed
     
-
     }//GEN-LAST:event_TxtDniBuscarActionPerformed
    
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-           String dni = TxtDniBuscar.getText().trim();
+           
+        String dni = TxtDniBuscar.getText().trim();
 
         if (dni.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ingresa un DNI para buscar.");
@@ -339,7 +333,7 @@ try {
         } else {
             JOptionPane.showMessageDialog(null, "Paciente no encontrado.");
         }
-    }
+    
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -400,3 +394,4 @@ try {
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 
+}

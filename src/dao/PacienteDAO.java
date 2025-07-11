@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PacienteDAO implements ICrud<Paciente> {
-public Paciente buscarPorDni(String dni) {
+
+    public Paciente buscarPorDni(String dni) {
     Paciente paciente = null;
     Connection conn = null;
     PreparedStatement ps = null;
@@ -154,6 +155,5 @@ public Paciente buscarPorDni(String dni) {
  
     }
     
-    
-  
 }
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/modelo/Usuario.java</file>
+            <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/dao/ArchivoCitaDAO.java</file>
+            <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/dao/ConexionDB.java</file>
+            <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/dao/PacienteDAO.java</file>
+            <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/modelo/Paciente.java</file>
+            <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/vista/FrmPrincipal.java</file>
+            <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/vista/FrmPaciente.java</file>
+            <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/dao/ICrud.java</file>
+            <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/dao/MedicoDAO.java</file>
+        </group>
+    </open-files>
+</project-private>

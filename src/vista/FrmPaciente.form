@@ -88,13 +88,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtDni" max="32767" attributes="0"/>
                                   <Component id="txtApellido" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                       <Component id="cmbSexo" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="81" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="txtEdad" max="32767" attributes="0"/>
+                                  <Component id="txtNombre" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -182,8 +182,6 @@
                 <Property name="text" type="java.lang.String" value="DNI"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtNombre">
-            </Component>
             <Component class="javax.swing.JTextField" name="txtApellido">
             </Component>
             <Component class="javax.swing.JTextField" name="txtDni">
@@ -259,6 +257,8 @@
                   <Color blue="ff" green="99" red="66" type="rgb"/>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtNombre">
             </Component>
           </SubComponents>
         </Container>
