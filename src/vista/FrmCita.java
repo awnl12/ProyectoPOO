@@ -375,6 +375,7 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
         txtDniMedico.setText(cita.getIdMedico());
         txtFecha.setText(cita.getFecha());
         txtHora.setText(cita.getHora());
+        txtMotivo.setText(cita.getMotivo());
     } else {
         JOptionPane.showMessageDialog(this, "Cita no encontrada");
     }
