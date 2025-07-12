@@ -41,7 +41,7 @@ public class FrmCita extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txtIdCita = new javax.swing.JTextField();
+        txtDniCita = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txaArea = new javax.swing.JTextArea();
@@ -231,25 +231,24 @@ public class FrmCita extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addGap(59, 59, 59)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addGap(30, 30, 30)
-                                    .addComponent(txtIdCita, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                                    .addComponent(btnBuscar)
-                                    .addGap(62, 62, 62))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(btnEliminar)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnActualizar)
-                                    .addGap(108, 108, 108))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addGap(110, 110, 110)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(30, 30, 30)
+                                .addComponent(txtDniCita, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                                .addComponent(btnBuscar)
+                                .addGap(62, 62, 62))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnEliminar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnActualizar)
+                                .addGap(108, 108, 108))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2)))
@@ -261,7 +260,7 @@ public class FrmCita extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtIdCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDniCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -328,8 +327,8 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
     }
 
     Cita cita = new Cita();
-    cita.setIdPaciente(String.valueOf(paciente.getId())); // 
-    cita.setIdMedico(String.valueOf(medico.getId()));     
+    cita.setDniPaciente(String.valueOf(paciente.getId())); // 
+    cita.setDniMedico(String.valueOf(medico.getId()));     
     cita.setHora(hora);
     cita.setFecha(fecha);
     cita.setMotivo(motivo);
@@ -368,12 +367,12 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String id = txtIdCita.getText();
+        String id = txtDniCita.getText();
     CitaDAO dao = new CitaDAO();
     Cita cita = dao.buscar(Integer.parseInt(id));
     if (cita != null) {
-        txtDniPaciente.setText(cita.getIdPaciente());
-        txtDniMedico.setText(cita.getIdMedico());
+        txtDniPaciente.setText(cita.getDniPaciente());
+        txtDniMedico.setText(cita.getDniMedico());
         txtFecha.setText(cita.getFecha());
         txtHora.setText(cita.getHora());
         txtMotivo.setText(cita.getMotivo());
@@ -395,9 +394,9 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
          try {
         Cita cita = new Cita();
-        cita.setId(Integer.parseInt(txtIdCita.getText()));
-        cita.setIdPaciente(txtDniPaciente.getText());
-        cita.setIdMedico(txtDniMedico.getText());
+        cita.setId(Integer.parseInt(txtDniCita.getText()));
+        cita.setDniPaciente(txtDniPaciente.getText());
+        cita.setDniMedico(txtDniMedico.getText());
         cita.setFecha(txtFecha.getText());
         cita.setHora(txtHora.getText());
         cita.setMotivo(txtMotivo.getText());
@@ -415,7 +414,7 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
        try {
-        int id = Integer.parseInt(txtIdCita.getText());
+        int id = Integer.parseInt(txtDniCita.getText());
         int confirm = JOptionPane.showConfirmDialog(this, "¿Eliminar cita?", "Confirmar", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION) {
             CitaDAO dao = new CitaDAO();
@@ -426,7 +425,7 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
             }
         }
     } catch (Exception ex) {
-        JOptionPane.showMessageDialog(this, "ID inválido");
+        JOptionPane.showMessageDialog(this, "DNI inválido");
     }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -435,7 +434,7 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
     }//GEN-LAST:event_txaAreaAncestorAdded
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      txtIdCita.setText(null);
+      txtDniCita.setText(null);
       txaArea.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 /*  */
@@ -491,11 +490,11 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextArea txaArea;
+    private javax.swing.JTextField txtDniCita;
     private javax.swing.JTextField txtDniMedico;
     private javax.swing.JTextField txtDniPaciente;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtHora;
-    private javax.swing.JTextField txtIdCita;
     private javax.swing.JTextField txtMotivo;
     // End of variables declaration//GEN-END:variables
 }

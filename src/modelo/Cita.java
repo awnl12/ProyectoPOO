@@ -8,15 +8,14 @@ public class Cita {
     private String fecha;
     private String hora;
     private String motivo;
-    
-    private String idPaciente;
-    private String idMedico;
+    private String dniPaciente;
+    private String dniMedico;
     
     public Cita(){};
-    public Cita(int id, String idPaciente, String idMedico, String fecha, String hora, String motivo) {
+    public Cita(int id, String dniPaciente, String dniMedico, String fecha, String hora, String motivo) {
         this.id = id;
-        this.idPaciente = idPaciente;
-        this.idMedico = idMedico;
+        this.dniPaciente = dniPaciente;
+        this.dniMedico = dniMedico;
         this.fecha = fecha;
         this.hora = hora;
         this.motivo = motivo;
@@ -30,21 +29,23 @@ public class Cita {
         this.id = id;
     }
 
-    public String getIdPaciente() {
-        return idPaciente;
+    public String getDniPaciente() {
+        return dniPaciente;
     }
 
-    public void setIdPaciente(String idPaciente) {
-        this.idPaciente = idPaciente;
+    public void setDniPaciente(String dniPaciente) {
+        this.dniPaciente = dniPaciente;
     }
 
-    public String getIdMedico() {
-        return idMedico;
+    public String getDniMedico() {
+        return dniMedico;
     }
 
-    public void setIdMedico(String idMedico) {
-        this.idMedico = idMedico;
+    public void setDniMedico(String dniMedico) {
+        this.dniMedico = dniMedico;
     }
+
+
 
     public String getFecha() {
         return fecha;

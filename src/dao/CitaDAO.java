@@ -31,8 +31,8 @@ public class CitaDAO implements ICrud<Cita> {
             while (rs.next()) {
                 Cita cita = new Cita();
                 cita.setId(rs.getInt("id"));
-                cita.setIdPaciente(rs.getString("id_paciente"));
-                cita.setIdMedico(rs.getString("id_medico"));
+                cita.setDniPaciente(rs.getString("dni_paciente"));
+                cita.setDniMedico(rs.getString("dni_medico"));
                 cita.setFecha(rs.getString("fecha"));
                 cita.setHora(rs.getString("hora"));
                 cita.setMotivo(rs.getString("motivo"));
@@ -57,7 +57,7 @@ public class CitaDAO implements ICrud<Cita> {
     @Override
     public Cita buscar(int id) {
        Cita cita = null;
-    String sql = "SELECT * FROM cita WHERE id = ?";
+    String sql = "SELECT * FROM cita WHERE dni_paciente = ? OR dni_medico = ?";
 
     try (Connection conn = ConexionDB.getConexion();
          PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -70,11 +70,11 @@ public class CitaDAO implements ICrud<Cita> {
             cita.setFecha(rs.getString("fecha"));
             cita.setHora(rs.getString("hora"));
             cita.setMotivo(rs.getString("motivo"));
-            cita.setIdPaciente(rs.getString("id_paciente"));
-            cita.setIdMedico(rs.getString("id_medico"));
+            cita.setDniPaciente(rs.getString("dni_paciente"));
+            cita.setDniMedico(rs.getString("dni_medico"));
         }
     } catch (SQLException e) {
-        System.out.println("Error al buscar cita por ID: " + e.getMessage());
+        System.out.println("Error al buscar cita por DNI: " + e.getMessage());
     }
 
     return cita;
@@ -82,15 +82,15 @@ public class CitaDAO implements ICrud<Cita> {
 
     @Override
     public boolean actualizar(Cita cita) {
-      String sql = "UPDATE cita SET fecha = ?, hora = ?, motivo = ?, id_paciente = ?, id_medico = ? WHERE id = ?";
+      String sql = "UPDATE cita SET fecha = ?, hora = ?, motivo = ?, dni_paciente = ?, dni_medico = ? WHERE id = ?";
 
     try (Connection conn = ConexionDB.getConexion();
          PreparedStatement ps = conn.prepareStatement(sql)) {
         ps.setString(1, cita.getFecha());
         ps.setString(2, cita.getHora());
         ps.setString(3, cita.getMotivo());
-        ps.setString(4, cita.getIdPaciente());
-        ps.setString(5, cita.getIdMedico());
+        ps.setString(4, cita.getDniPaciente());
+        ps.setString(5, cita.getDniMedico());
         ps.setInt(6, cita.getId());
 
         return ps.executeUpdate() > 0;
@@ -102,7 +102,7 @@ public class CitaDAO implements ICrud<Cita> {
 
     @Override
     public boolean eliminar(int id) {
-      String sql = "DELETE FROM cita WHERE id = ?";
+      String sql = "DELETE FROM cita WHERE dni_paciente = ? OR dni_medico = ?";
 
     try (Connection conn = ConexionDB.getConexion();
          PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -118,13 +118,13 @@ public class CitaDAO implements ICrud<Cita> {
     public boolean insertar(Cita cita) {
        Connection conn = null;
         PreparedStatement ps = null;
-        String sql = "INSERT INTO cita (id_paciente, id_medico, fecha, hora, motivo) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO cita (dni_paciente, dni_medico, fecha, hora, motivo) VALUES (?, ?, ?, ?, ?)";
        
         try {
             conn = ConexionDB.getConexion();
             ps = conn.prepareStatement(sql);
-            ps.setString(1, cita.getIdPaciente());
-            ps.setString(2, cita.getIdMedico());
+            ps.setString(1, cita.getDniPaciente());
+            ps.setString(2, cita.getDniMedico());
             ps.setString(3, cita.getFecha());
             ps.setString(4, cita.getHora());
             ps.setString(5, cita.getMotivo());
@@ -144,6 +144,46 @@ public class CitaDAO implements ICrud<Cita> {
             }
         } 
     }
+
+
+public List<Cita> buscarPorDniPacienteOMedico(String dni) {
+    List<Cita> lista = new ArrayList<>();
+    String sql = "SELECT * FROM cita WHERE dni_paciente = ? OR dni_medico = ?";
+
+    try (Connection con = ConexionDB.getConexion();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+        ps.setString(1, dni);
+        ps.setString(2, dni);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Cita cita = new Cita();
+            cita.setId(rs.getInt("id"));
+            cita.setDniPaciente(rs.getString("dni_paciente"));
+            cita.setDniMedico(rs.getString("dni_medico"));
+            cita.setFecha(rs.getString("fecha"));
+            cita.setMotivo(rs.getString("motivo"));
+            lista.add(cita);
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Error al buscar cita por DNI: " + e.getMessage());
+    }
+
+    return lista;
 }
+
+
+
+
+
+
+
+}
+
+
+
+
 
 

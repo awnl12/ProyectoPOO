@@ -41,10 +41,6 @@ public class FrmPaciente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txaArea = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,7 +152,7 @@ public class FrmPaciente extends javax.swing.JFrame {
                 .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jTabbedPane1.addTab("Registro", jPanel1);
+        jTabbedPane1.addTab("Paciente", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(102, 153, 255));
 
@@ -228,16 +224,17 @@ public class FrmPaciente extends javax.swing.JFrame {
                 .addGap(67, 67, 67))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(96, 96, 96)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnElimnar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnActulzr)))
+                .addComponent(btnElimnar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnActulzr)
                 .addGap(128, 128, 128))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,9 +244,9 @@ public class FrmPaciente extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(TxtDniBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActulzr)
                     .addComponent(btnElimnar))
@@ -258,49 +255,6 @@ public class FrmPaciente extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Ajustes", jPanel2);
-
-        jPanel3.setBackground(new java.awt.Color(102, 153, 255));
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable2);
-
-        jButton3.setText("Actulizar");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(jButton3))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(36, 36, 36))
-        );
-
-        jTabbedPane1.addTab("Todos", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -316,107 +270,17 @@ public class FrmPaciente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      this.dispose();
-      FrmPrincipal frm = new FrmPrincipal();
-      frm.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        txaArea.setText(null);
+        TxtDniBuscar.setText(null);  // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void cmbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSexoActionPerformed
-        
-    }//GEN-LAST:event_cmbSexoActionPerformed
+    private void txaAreaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txaAreaAncestorAdded
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        try {
-            String nombre = txtNombre.getText();
-            String apellido = txtApellido.getText();
-            String dni = txtDni.getText();
-            char sexo = cmbSexo.getSelectedItem().toString().charAt(0);
-            int edad = Integer.parseInt(txtEdad.getText());
-            
-             if (dni.length() != 8 || !dni.matches("\\d+")) {
-            JOptionPane.showMessageDialog(this, "El DNI debe tener 8 dígitos numéricos.", "DNI Inválido", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-             
-            Paciente paciente = new Paciente(nombre, apellido, dni, sexo);
-            paciente.setEdad(edad);
-
-            PacienteDAO dao = new PacienteDAO();
-            if (dao.insertar(paciente)) {
-                JOptionPane.showMessageDialog(this, "Paciente registrado correctamente");
-            } else {
-                JOptionPane.showMessageDialog(this, "Error al registrar paciente");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Datos inválidos o campos vacíos");
-        }
-        
-        
-        txtNombre.setText(null);
-        txtApellido.setText(null);
-        txtDni.setText(null);
-        txtEdad.setText(null);
-        cmbSexo.setSelectedItem(null);
-        
-         txtNombre.requestFocus();
-        txtApellido.requestFocus();
-        txtDni.requestFocus();
-        txtEdad.requestFocus();
-        cmbSexo.setSelectedItem(null);
-    }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void TxtDniBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDniBuscarActionPerformed
-    
-    }//GEN-LAST:event_TxtDniBuscarActionPerformed
-   
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-           
-        String dni = TxtDniBuscar.getText().trim();
-
-        if (dni.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingresa un DNI para buscar.");
-            return;
-        }
-
-        PacienteDAO dao = new PacienteDAO();
-        Paciente paciente = dao.buscarPorDni(dni);
-
-        if (paciente != null) {
-            txtId.setText(String.valueOf(paciente.getId()));
-            txtNombre.setText(paciente.getNombre());
-            txtApellido.setText(paciente.getApellido());
-            txtDni.setText(paciente.getDni());
-            cmbSexo.setSelectedItem(String.valueOf(paciente.getSexo()));
-            txtEdad.setText(String.valueOf(paciente.getEdad()));
-            JOptionPane.showMessageDialog(null, "Paciente encontrado");
-  
-
- txaArea.append("-------PACIENTE REGISTRADO--------\n" );
-  txaArea.append("ID: " + txtId.getText()+"\n");
-  txaArea.append("APELLIDO: " + txtApellido.getText()+"\n");
-  txaArea.append("DNI: " + txtDni.getText()+"\n");
-  txaArea.append("APELLIDO " + txtApellido.getText()+"\n");
-  txaArea.append("SEXO: " + String.valueOf(cmbSexo.getSelectedItem())+"\n");
-  txaArea.append("EDAD: " + txtEdad.getText());
-
-            txaArea.append("ID: " + txtId.getText()+"\n");
-            txaArea.append("APELLIDO: " + txtApellido.getText()+"\n");
-            txaArea.append("DNI: " + txtDni.getText()+"\n");
-            txaArea.append("APELLIDO " + txtApellido.getText()+"\n");
-            txaArea.append("SEXO: " + String.valueOf(cmbSexo.getSelectedItem())+"\n");
-            txaArea.append("EDAD: " + txtEdad.getText());
-
-  
-        } else {
-            JOptionPane.showMessageDialog(null, "Paciente no encontrado.");
-        }
-    
-  
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    }//GEN-LAST:event_txaAreaAncestorAdded
 
     private void btnActulzrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActulzrActionPerformed
-     try {
+        try {
             int id = Integer.parseInt(txtId.getText());
             String nombre = txtNombre.getText();
             String apellido = txtApellido.getText();
@@ -436,11 +300,11 @@ public class FrmPaciente extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al actualizar. Verifique los datos.");
-        } 
+        }
     }//GEN-LAST:event_btnActulzrActionPerformed
 
     private void btnElimnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimnarActionPerformed
-         try {
+        try {
             int id = Integer.parseInt(txtId.getText());
             int confirm = JOptionPane.showConfirmDialog(this, "¿Estás seguro de eliminar?", "Confirmar", JOptionPane.YES_NO_OPTION);
 
@@ -457,15 +321,96 @@ public class FrmPaciente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnElimnarActionPerformed
 
-    private void txaAreaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txaAreaAncestorAdded
-        
-    }//GEN-LAST:event_txaAreaAncestorAdded
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      txaArea.setText(null);
-        TxtDniBuscar.setText(null);  // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        String dni = TxtDniBuscar.getText().trim();
 
+        if (dni.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingresa un DNI para buscar.");
+            return;
+        }
+
+        PacienteDAO dao = new PacienteDAO();
+        Paciente paciente = dao.buscarPorDni(dni);
+
+        if (paciente != null) {
+            txtId.setText(String.valueOf(paciente.getId()));
+            txtNombre.setText(paciente.getNombre());
+            txtApellido.setText(paciente.getApellido());
+            txtDni.setText(paciente.getDni());
+            cmbSexo.setSelectedItem(String.valueOf(paciente.getSexo()));
+            txtEdad.setText(String.valueOf(paciente.getEdad()));
+            JOptionPane.showMessageDialog(null, "Paciente encontrado");
+
+            txaArea.append("-------PACIENTE REGISTRADO--------\n" );
+            txaArea.append("ID: " + txtId.getText()+"\n");
+            txaArea.append("APELLIDO: " + txtApellido.getText()+"\n");
+            txaArea.append("DNI: " + txtDni.getText()+"\n");
+            txaArea.append("APELLIDO " + txtApellido.getText()+"\n");
+            txaArea.append("SEXO: " + String.valueOf(cmbSexo.getSelectedItem())+"\n");
+            txaArea.append("EDAD: " + txtEdad.getText());
+
+       
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Paciente no encontrado.");
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void TxtDniBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDniBuscarActionPerformed
+
+    }//GEN-LAST:event_TxtDniBuscarActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        try {
+            String nombre = txtNombre.getText();
+            String apellido = txtApellido.getText();
+            String dni = txtDni.getText();
+            char sexo = cmbSexo.getSelectedItem().toString().charAt(0);
+            int edad = Integer.parseInt(txtEdad.getText());
+
+            if (dni.length() != 8 || !dni.matches("\\d+")) {
+                JOptionPane.showMessageDialog(this, "El DNI debe tener 8 dígitos numéricos.", "DNI Inválido", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            Paciente paciente = new Paciente(nombre, apellido, dni, sexo);
+            paciente.setEdad(edad);
+
+            PacienteDAO dao = new PacienteDAO();
+            if (dao.insertar(paciente)) {
+                JOptionPane.showMessageDialog(this, "Paciente registrado correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al registrar paciente");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Datos inválidos o campos vacíos");
+        }
+
+        txtNombre.setText(null);
+        txtApellido.setText(null);
+        txtDni.setText(null);
+        txtEdad.setText(null);
+        cmbSexo.setSelectedItem(null);
+
+        txtNombre.requestFocus();
+        txtApellido.requestFocus();
+        txtDni.requestFocus();
+        txtEdad.requestFocus();
+        cmbSexo.setSelectedItem(null);
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+        FrmPrincipal frm = new FrmPrincipal();
+        frm.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cmbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSexoActionPerformed
+
+    }//GEN-LAST:event_cmbSexoActionPerformed
+   
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -508,7 +453,6 @@ public class FrmPaciente extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbSexo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -517,11 +461,8 @@ public class FrmPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea txaArea;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtDni;

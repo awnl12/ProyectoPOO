@@ -184,7 +184,7 @@ public class FrmMedico extends javax.swing.JFrame {
                 .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jTabbedPane1.addTab("Paciente", jPanel1);
+        jTabbedPane1.addTab("Medico", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 255));
 
