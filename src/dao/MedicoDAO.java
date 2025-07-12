@@ -1,6 +1,7 @@
 package dao;
 
 
+import basedatos.ConexionDB;
 import modelo.Medico;
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package dao;
 
-import dao.ConexionDB;
+import basedatos.ConexionDB;
 import dao.ICrud;
 import modelo.Paciente;
 

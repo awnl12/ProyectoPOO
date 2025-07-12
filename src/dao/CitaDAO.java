@@ -5,6 +5,7 @@
 package dao;
 
 
+import basedatos.ConexionDB;
 import modelo.Cita;
 import java.sql.*;
 import java.util.ArrayList;

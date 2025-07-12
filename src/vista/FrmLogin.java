@@ -1,7 +1,7 @@
 
 package vista;
 
-import dao.ConexionDB;
+import basedatos.ConexionDB;
 import dao.UsuarioDAO;
 import javax.swing.JOptionPane;
 import modelo.Usuario;

@@ -8,7 +8,7 @@ import dao.UsuarioDAO;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import basedatos.DBInitializer;
-import dao.ConexionDB;
+import basedatos.ConexionDB;
 
 public class FrmRegistroUsusario extends javax.swing.JFrame {
 
