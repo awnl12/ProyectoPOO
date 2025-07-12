@@ -332,7 +332,17 @@ public class FrmMedico extends javax.swing.JFrame {
         char sexo = cmbSexo.getSelectedItem().toString().charAt(0);
         String especialidad = txtEspecialidad.getText();
         String codigo = txtCodigo.getText();
-
+        
+        if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() || codigo.isEmpty() || especialidad.isEmpty() || cmbSexo.equals("--Seleccionar--")) {
+            JOptionPane.showMessageDialog(this, "Por favor completa todos los campos.", "Campos Vacíos", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+         if (dni.length() != 8 || !dni.matches("\\d+")) {
+            JOptionPane.showMessageDialog(this, "El DNI debe tener 8 dígitos numéricos.", "DNI Inválido", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+         
         Medico medico = new Medico(nombre, apellido, dni, sexo);
         medico.setEspecialidad(especialidad);
         medico.setCodigoMedico(codigo);
@@ -345,6 +355,10 @@ public class FrmMedico extends javax.swing.JFrame {
         }
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Campos inválidos o vacíos");
+        
+        
+        
+        
     }
         txtNombre.setText(null);
         txtApellido.setText(null);

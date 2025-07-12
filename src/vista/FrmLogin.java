@@ -41,7 +41,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setForeground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -193,9 +193,9 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         FrmInicio frm = new FrmInicio();
+        frm.setVisible(true);
         this.dispose();
-        FrmRegistroUsusario fru = new FrmRegistroUsusario();
-        fru.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

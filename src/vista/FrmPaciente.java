@@ -287,7 +287,12 @@ public class FrmPaciente extends javax.swing.JFrame {
             String dni = txtDni.getText();
             char sexo = cmbSexo.getSelectedItem().toString().charAt(0);
             int edad = Integer.parseInt(txtEdad.getText());
-
+            
+             if (dni.length() != 8 || !dni.matches("\\d+")) {
+            JOptionPane.showMessageDialog(this, "El DNI debe tener 8 dígitos numéricos.", "DNI Inválido", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+             
             Paciente paciente = new Paciente(nombre, apellido, dni, sexo);
             paciente.setEdad(edad);
 
