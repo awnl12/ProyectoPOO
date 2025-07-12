@@ -25,6 +25,7 @@ public class FrmMedico extends javax.swing.JFrame {
         btnBuscarMed = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        btnVolv = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +50,13 @@ public class FrmMedico extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        btnVolv.setText("Volver");
+        btnVolv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolvActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,6 +78,10 @@ public class FrmMedico extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBuscarMed)
                         .addGap(86, 86, 86))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVolv)
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +101,9 @@ public class FrmMedico extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(99, 99, 99)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(btnVolv)
+                .addGap(57, 57, 57))
         );
 
         pack();
@@ -103,6 +117,12 @@ public class FrmMedico extends javax.swing.JFrame {
     private void btnBuscarMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarMedActionPerformed
         
     }//GEN-LAST:event_btnBuscarMedActionPerformed
+
+    private void btnVolvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolvActionPerformed
+      this.dispose();
+      FrmPrincipal fp = new FrmPrincipal();
+      fp.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btnVolvActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +162,7 @@ public class FrmMedico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarMed;
+    private javax.swing.JButton btnVolv;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
