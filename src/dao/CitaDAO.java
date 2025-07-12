@@ -30,8 +30,8 @@ public class CitaDAO implements ICrud<Cita> {
             while (rs.next()) {
                 Cita cita = new Cita();
                 cita.setId(rs.getInt("id"));
-                cita.setIdPaciente(rs.getInt("idPaciente"));
-                cita.setIdMedico(rs.getInt("idMedico"));
+                cita.setIdPaciente(rs.getString("id_paciente"));
+                cita.setIdMedico(rs.getString("id_medico"));
                 cita.setFecha(rs.getString("fecha"));
                 cita.setHora(rs.getString("hora"));
                 cita.setMotivo(rs.getString("motivo"));
@@ -55,30 +55,75 @@ public class CitaDAO implements ICrud<Cita> {
 
     @Override
     public Cita buscar(int id) {
-        return null;
+       Cita cita = null;
+    String sql = "SELECT * FROM cita WHERE id = ?";
+
+    try (Connection conn = ConexionDB.getConexion();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            cita = new Cita();
+            cita.setId(rs.getInt("id"));
+            cita.setFecha(rs.getString("fecha"));
+            cita.setHora(rs.getString("hora"));
+            cita.setMotivo(rs.getString("motivo"));
+            cita.setIdPaciente(rs.getString("id_paciente"));
+            cita.setIdMedico(rs.getString("id_medico"));
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al buscar cita por ID: " + e.getMessage());
+    }
+
+    return cita;
     }
 
     @Override
     public boolean actualizar(Cita cita) {
+      String sql = "UPDATE cita SET fecha = ?, hora = ?, motivo = ?, id_paciente = ?, id_medico = ? WHERE id = ?";
+
+    try (Connection conn = ConexionDB.getConexion();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setString(1, cita.getFecha());
+        ps.setString(2, cita.getHora());
+        ps.setString(3, cita.getMotivo());
+        ps.setString(4, cita.getIdPaciente());
+        ps.setString(5, cita.getIdMedico());
+        ps.setInt(6, cita.getId());
+
+        return ps.executeUpdate() > 0;
+    } catch (SQLException e) {
+        System.out.println("Error al actualizar cita: " + e.getMessage());
         return false;
+    }
     }
 
     @Override
     public boolean eliminar(int id) {
+      String sql = "DELETE FROM cita WHERE id = ?";
+
+    try (Connection conn = ConexionDB.getConexion();
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+        ps.setInt(1, id);
+        return ps.executeUpdate() > 0;
+    } catch (SQLException e) {
+        System.out.println("Error al eliminar cita: " + e.getMessage());
         return false;
+    }
     }
 
     @Override
     public boolean insertar(Cita cita) {
        Connection conn = null;
         PreparedStatement ps = null;
-        String sql = "INSERT INTO cita (idPaciente, idMedico, fecha, hora, motivo) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO cita (id_paciente, id_medico, fecha, hora, motivo) VALUES (?, ?, ?, ?, ?)";
 
         try {
             conn = ConexionDB.getConexion();
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, cita.getIdPaciente());
-            ps.setInt(2, cita.getIdMedico());
+            ps.setString(1, cita.getIdPaciente());
+            ps.setString(2, cita.getIdMedico());
             ps.setString(3, cita.getFecha());
             ps.setString(4, cita.getHora());
             ps.setString(5, cita.getMotivo());

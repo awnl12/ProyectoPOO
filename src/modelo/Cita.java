@@ -9,11 +9,11 @@ public class Cita {
     private String hora;
     private String motivo;
     
-    private int idPaciente;
-    private int idMedico;
+    private String idPaciente;
+    private String idMedico;
     
     public Cita(){};
-    public Cita(int id, int idPaciente, int idMedico, String fecha, String hora, String motivo) {
+    public Cita(int id, String idPaciente, String idMedico, String fecha, String hora, String motivo) {
         this.id = id;
         this.idPaciente = idPaciente;
         this.idMedico = idMedico;
@@ -30,19 +30,19 @@ public class Cita {
         this.id = id;
     }
 
-    public int getIdPaciente() {
+    public String getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(int idPaciente) {
+    public void setIdPaciente(String idPaciente) {
         this.idPaciente = idPaciente;
     }
 
-    public int getIdMedico() {
+    public String getIdMedico() {
         return idMedico;
     }
 
-    public void setIdMedico(int idMedico) {
+    public void setIdMedico(String idMedico) {
         this.idMedico = idMedico;
     }
 
