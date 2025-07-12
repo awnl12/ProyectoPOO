@@ -290,7 +290,8 @@ public class FrmMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolvActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-     String dni = txtBuscarDni.getText().trim();
+     txaArea.setText(""); 
+        String dni = txtBuscarDni.getText().trim();
 
     if (dni.isEmpty()) {
         JOptionPane.showMessageDialog(null, "Ingresa un DNI para buscar.");

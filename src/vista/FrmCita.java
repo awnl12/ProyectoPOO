@@ -7,6 +7,7 @@ package vista;
 import dao.CitaDAO;
 import dao.MedicoDAO;
 import dao.PacienteDAO;
+import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Cita;
 import modelo.Medico;
@@ -327,8 +328,8 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
     }
 
     Cita cita = new Cita();
-    cita.setDniPaciente(String.valueOf(paciente.getId())); // 
-    cita.setDniMedico(String.valueOf(medico.getId()));     
+    cita.setDniPaciente(String.valueOf(paciente.getDni())); // 
+    cita.setDniMedico(String.valueOf(medico.getDni())); 
     cita.setHora(hora);
     cita.setFecha(fecha);
     cita.setMotivo(motivo);
@@ -367,26 +368,33 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String id = txtDniCita.getText();
+     String dni = txtDniCita.getText();
     CitaDAO dao = new CitaDAO();
-    Cita cita = dao.buscar(Integer.parseInt(id));
-    if (cita != null) {
-        txtDniPaciente.setText(cita.getDniPaciente());
-        txtDniMedico.setText(cita.getDniMedico());
-        txtFecha.setText(cita.getFecha());
-        txtHora.setText(cita.getHora());
-        txtMotivo.setText(cita.getMotivo());
-    } else {
-        JOptionPane.showMessageDialog(this, "Cita no encontrada");
+   List<Cita> citas = dao.buscarPorDniPacienteOMedico(dni);
+
+if (!citas.isEmpty()) {
+    
+    Cita cita = citas.get(0);
+    txtDniPaciente.setText(cita.getDniPaciente());
+    txtDniMedico.setText(cita.getDniMedico());
+    txtFecha.setText(cita.getFecha());
+    txtHora.setText(cita.getHora());
+    txtMotivo.setText(cita.getMotivo());
+
+    
+    txaArea.setText(""); 
+    for (Cita c : citas) {
+        txaArea.append("-------CITA REGISTRADA--------\n");
+        txaArea.append("PACIENTE: " + c.getDniPaciente() + "\n");
+        txaArea.append("MEDICO: " + c.getDniMedico() + "\n");
+        txaArea.append("FECHA: " + c.getFecha() + "\n");
+        txaArea.append("HORA: " + c.getHora() + "\n");
+        txaArea.append("MOTIVO: " + c.getMotivo() + "\n\n");
     }
-    txaArea.append("-------CITA REGISTRADA--------\n" );
-    txaArea.append("PACIENTE: " + txtDniPaciente.getText() + "\n" );
-    txaArea.append("MEDICO: " + txtDniMedico.getText() + "\n" );
-    txaArea.append("FECHA: " + txtFecha.getText() + "\n" );
-    txaArea.append("HORA: " + txtHora.getText() + "\n" );
-    txaArea.append("MOTIVO: " + txtMotivo.getText() + "\n" );
-    
-    
+
+} else {
+    JOptionPane.showMessageDialog(this, "No se encontraron citas con ese DNI");
+}
     
     
     }//GEN-LAST:event_btnBuscarActionPerformed

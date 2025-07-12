@@ -341,12 +341,12 @@ public class FrmPaciente extends javax.swing.JFrame {
             cmbSexo.setSelectedItem(String.valueOf(paciente.getSexo()));
             txtEdad.setText(String.valueOf(paciente.getEdad()));
             JOptionPane.showMessageDialog(null, "Paciente encontrado");
-
+txaArea.setText(""); 
             txaArea.append("-------PACIENTE REGISTRADO--------\n" );
             txaArea.append("ID: " + txtId.getText()+"\n");
+            txaArea.append("NOMBRE: " + txtNombre.getText()+"\n");
             txaArea.append("APELLIDO: " + txtApellido.getText()+"\n");
             txaArea.append("DNI: " + txtDni.getText()+"\n");
-            txaArea.append("APELLIDO " + txtApellido.getText()+"\n");
             txaArea.append("SEXO: " + String.valueOf(cmbSexo.getSelectedItem())+"\n");
             txaArea.append("EDAD: " + txtEdad.getText());
 

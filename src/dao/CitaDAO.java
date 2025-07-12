@@ -147,12 +147,19 @@ public class CitaDAO implements ICrud<Cita> {
 
 
 public List<Cita> buscarPorDniPacienteOMedico(String dni) {
-    List<Cita> lista = new ArrayList<>();
-    String sql = "SELECT * FROM cita WHERE dni_paciente = ? OR dni_medico = ?";
+  
 
+
+  List<Cita> lista = new ArrayList<>();
+    String sql = "SELECT * FROM cita WHERE dni_paciente = ? OR dni_medico = ?";
+    
+    if (dni == null || dni.trim().isEmpty()) {
+    System.out.println("DNI vacío o nulo");
+    return lista;
+}
     try (Connection con = ConexionDB.getConexion();
          PreparedStatement ps = con.prepareStatement(sql)) {
-
+         
         ps.setString(1, dni);
         ps.setString(2, dni);
         ResultSet rs = ps.executeQuery();
@@ -163,6 +170,7 @@ public List<Cita> buscarPorDniPacienteOMedico(String dni) {
             cita.setDniPaciente(rs.getString("dni_paciente"));
             cita.setDniMedico(rs.getString("dni_medico"));
             cita.setFecha(rs.getString("fecha"));
+            cita.setHora(rs.getString("hora"));
             cita.setMotivo(rs.getString("motivo"));
             lista.add(cita);
         }
@@ -173,9 +181,6 @@ public List<Cita> buscarPorDniPacienteOMedico(String dni) {
 
     return lista;
 }
-
-
-
 
 
 

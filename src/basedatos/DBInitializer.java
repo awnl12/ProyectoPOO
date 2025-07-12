@@ -43,8 +43,8 @@ public class DBInitializer {
             String tablaCita = """
             CREATE TABLE IF NOT EXISTS cita (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                dni_paciente INT,
-                dni_medico INT,
+                dni_paciente VARCHAR(8),
+                dni_medico VARCHAR(8),
                 fecha DATE,
                 hora TIME,
                 motivo VARCHAR(200)

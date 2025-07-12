@@ -12,6 +12,7 @@ import modelo.Cita;
 import dao.MedicoDAO;
 import dao.PacienteDAO;
 import javax.swing.JOptionPane;
+import vista.FrmCita;
 /**
  *
  * @author jorge
@@ -23,7 +24,7 @@ public class FrmVerCitas extends javax.swing.JFrame {
      */
     public FrmVerCitas() {
         initComponents();
-        listarCitas();
+        cargarTodasLasCitasEnTabla();
     }
 
     /**
@@ -40,6 +41,7 @@ public class FrmVerCitas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCitas = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        txtDniBuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +91,10 @@ public class FrmVerCitas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(32, 32, 32))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtDniBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +108,9 @@ public class FrmVerCitas extends javax.swing.JFrame {
                         .addComponent(jButton1)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(txtDniBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -126,19 +134,19 @@ public class FrmVerCitas extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  this.dispose();
  FrmPrincipal fm = new FrmPrincipal();
-fm.setVisible(true);// TODO add your handling code here:
+fm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
-  private void listarCitas() {
+  private void cargarTodasLasCitasEnTabla() {
     CitaDAO dao = new CitaDAO();
-    List<Cita> lista = dao.listar();
+    List<Cita> citas = dao.listar();
 
-    DefaultTableModel model = (DefaultTableModel) tblCitas.getModel();
-    model.setRowCount(0); 
+    String[] columnas = {"ID", "Dni_Paciente", "Dni_Medico", "Fecha", "Hora", "Motivo"};
+    DefaultTableModel modelo = new DefaultTableModel(null, columnas);
 
-    for (Cita c : lista) {
-        model.addRow(new Object[]{
+    for (Cita c : citas) {
+        modelo.addRow(new Object[]{
             c.getId(),
             c.getDniPaciente(),
             c.getDniMedico(),
@@ -147,10 +155,8 @@ fm.setVisible(true);// TODO add your handling code here:
             c.getMotivo()
         });
     }
-    String[] columnas = {"ID", "Nombre", "Apellido", "DNI", "Fecha", "Hora", "motivo"};
-DefaultTableModel modelo = new DefaultTableModel(null, columnas);
-tblCitas.setModel(modelo);
-        
+
+    tblCitas.setModel(modelo);
 }
    
 
@@ -192,5 +198,6 @@ tblCitas.setModel(modelo);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblCitas;
+    private javax.swing.JTextField txtDniBuscar;
     // End of variables declaration//GEN-END:variables
 }
