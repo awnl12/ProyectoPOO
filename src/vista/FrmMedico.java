@@ -311,13 +311,13 @@ public class FrmMedico extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Medico encontrado");
         
         
-        txaArea.append(txtId.getText() + "\n");
-        txaArea.append(txtNombre.getText() + "\n");
-        txaArea.append(txtApellido.getText() + "\n");
-        txaArea.append(txtDni.getText() + "\n");
-        
-        txaArea.append(txtCodigo.getText() + "\n");
-        txaArea.append(txtEspecialidad.getText());
+        txaArea.append("ID: " + txtId.getText() + "\n");
+        txaArea.append("NOMBRE: " + txtNombre.getText() + "\n");
+        txaArea.append("APELLIDO: " + txtApellido.getText() + "\n");
+        txaArea.append("DNI: " + txtDni.getText() + "\n");
+        txaArea.append("SEXO: " + String.valueOf(cmbSexo.getSelectedItem())+"\n");
+        txaArea.append("CODIGO: " + txtCodigo.getText() + "\n");
+        txaArea.append("ESPECIALIDAD: "+ txtEspecialidad.getText());
         
     } else {
         JOptionPane.showMessageDialog(null, "Médico no encontrado.");
