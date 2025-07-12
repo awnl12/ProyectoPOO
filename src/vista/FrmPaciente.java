@@ -345,6 +345,7 @@ public class FrmPaciente extends javax.swing.JFrame {
             txtEdad.setText(String.valueOf(paciente.getEdad()));
             JOptionPane.showMessageDialog(null, "Paciente encontrado");
   
+ txaArea.append("-------PACIENTE REGISTRADO--------\n" );
   txaArea.append("ID: " + txtId.getText()+"\n");
   txaArea.append("APELLIDO: " + txtApellido.getText()+"\n");
   txaArea.append("DNI: " + txtDni.getText()+"\n");

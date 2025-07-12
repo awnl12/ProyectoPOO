@@ -310,7 +310,7 @@ public class FrmMedico extends javax.swing.JFrame {
         txtEspecialidad.setText(medico.getEspecialidad());
         JOptionPane.showMessageDialog(null, "Medico encontrado");
         
-        
+        txaArea.append("-------MEDICO REGISTRADO--------\n" );
         txaArea.append("ID: " + txtId.getText() + "\n");
         txaArea.append("NOMBRE: " + txtNombre.getText() + "\n");
         txaArea.append("APELLIDO: " + txtApellido.getText() + "\n");

@@ -118,7 +118,7 @@ public class CitaDAO implements ICrud<Cita> {
        Connection conn = null;
         PreparedStatement ps = null;
         String sql = "INSERT INTO cita (id_paciente, id_medico, fecha, hora, motivo) VALUES (?, ?, ?, ?, ?)";
-
+       
         try {
             conn = ConexionDB.getConexion();
             ps = conn.prepareStatement(sql);

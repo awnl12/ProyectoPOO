@@ -46,7 +46,7 @@ public class DBInitializer {
                 id_paciente INT,
                 id_medico INT,
                 fecha DATE,
-                hora FECHA,
+                hora TIME,
                 motivo VARCHAR(200)
             );
             """;
