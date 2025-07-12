@@ -4,6 +4,7 @@ package dao;
 
 
 
+import Interface.ICrud;
 import basedatos.ConexionDB;
 import modelo.Usuario;
 import java.sql.*;

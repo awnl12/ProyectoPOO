@@ -294,7 +294,8 @@ public class FrmCita extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDniMedicoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-         try {
+       
+        try {
     String dniPaciente = txtDniPaciente.getText().trim();
     String dniMedico = txtDniMedico.getText().trim();
     String hora = txtHora.getText().trim();
@@ -339,12 +340,11 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
         
     } else {
         JOptionPane.showMessageDialog(this, "Error al registrar la cita.");
-    }
+    } 
 
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-}
-         
+}  catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Datos inválidos o campos vacíos");
+        }
          
          txtDniMedico.setText(null);
          txtDniPaciente.setText(null);
@@ -358,6 +358,7 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
          txtHora.requestFocus();
          txtMotivo.requestFocus();
          
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -5,6 +5,7 @@
 package dao;
 
 
+import Interface.ICrud;
 import basedatos.ConexionDB;
 import modelo.Cita;
 import java.sql.*;

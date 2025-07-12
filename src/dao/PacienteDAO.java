@@ -1,7 +1,7 @@
 package dao;
 
 import basedatos.ConexionDB;
-import dao.ICrud;
+import Interface.ICrud;
 import modelo.Paciente;
 
 import java.sql.*;
