@@ -143,10 +143,14 @@ fm.setVisible(true);// TODO add your handling code here:
             c.getDniPaciente(),
             c.getDniMedico(),
             c.getFecha(),
+            c.getHora(),
             c.getMotivo()
         });
     }
-        tblCitas.setModel(model);
+    String[] columnas = {"ID", "Nombre", "Apellido", "DNI", "Fecha", "Hora", "motivo"};
+DefaultTableModel modelo = new DefaultTableModel(null, columnas);
+tblCitas.setModel(modelo);
+        
 }
    
 
