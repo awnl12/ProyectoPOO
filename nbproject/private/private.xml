@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/modelo/Usuario.java</file>
             <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/dao/ArchivoCitaDAO.java</file>
@@ -13,5 +14,8 @@
             <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/dao/ICrud.java</file>
             <file>file:/C:/Users/jorge/Documents/NetBeansProjects/SistemaCitas/src/dao/MedicoDAO.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 601db3550d41f20ea37a7001f7177fe082d8ec87
     </open-files>
 </project-private>
