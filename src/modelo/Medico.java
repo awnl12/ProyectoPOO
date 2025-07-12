@@ -5,7 +5,15 @@ package modelo;
 public class Medico extends Persona {
     private String especialidad;
     private String codigoMedico;
+    private int Id;
 
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
     
     public Medico() {
     super("", "", "", 'M');

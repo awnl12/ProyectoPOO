@@ -12,7 +12,7 @@ public class MedicoDAO implements ICrud<Medico> {
     public boolean insertar(Medico medico) {
         Connection conn = null;
         PreparedStatement ps = null;
-        String sql = "INSERT INTO medico (nombre, apellido, dni, sexo, especialidad, codigoMedico) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO medico (nombre, apellido, dni, sexo, especialidad, codigo_medico) VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             conn = ConexionDB.getConexion();
@@ -55,7 +55,7 @@ public class MedicoDAO implements ICrud<Medico> {
             rs = st.executeQuery(sql);
 
             while (rs.next()) {
-                // Constructor vacío necesario
+               
                 Medico m = new Medico();
                 m.setNombre(rs.getString("nombre"));
                 m.setApellido(rs.getString("apellido"));
@@ -84,6 +84,34 @@ public class MedicoDAO implements ICrud<Medico> {
         return lista;
     }
 
+    public Medico buscarPorDni(String dni) {
+    String sql = "SELECT * FROM medico WHERE dni = ?";
+    
+    try (Connection conn = ConexionDB.getConexion();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, dni);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            Medico medico = new Medico(
+                rs.getString("nombre"),
+                rs.getString("apellido"),
+                rs.getString("dni"),
+                rs.getString("sexo").charAt(0)
+            );
+            medico.setId(rs.getInt("id"));
+            medico.setCodigoMedico(rs.getString("codigo_medico"));
+            medico.setEspecialidad(rs.getString("especialidad"));
+            return medico;
+        }
+
+    } catch (SQLException e) {
+        System.err.println("Error al buscar médico por DNI: " + e.getMessage());
+    }
+    
+    return null;
+}
     @Override
     public Medico buscar(int id) {
         return null; 
