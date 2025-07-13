@@ -13,6 +13,7 @@ import modelo.Cita;
 import modelo.Medico;
 import modelo.Paciente;
 
+
 public class FrmCita extends javax.swing.JFrame {
 
     
@@ -344,7 +345,8 @@ if (!hora.matches("\\d{2}:\\d{2}")) {
 
 }  catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Datos inválidos o campos vacíos");
-        }
+
+}
          
          txtDniMedico.setText(null);
          txtDniPaciente.setText(null);

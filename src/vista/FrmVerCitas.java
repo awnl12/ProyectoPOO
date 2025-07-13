@@ -157,6 +157,9 @@ fm.setVisible(true);
     }
 
     tblCitas.setModel(modelo);
+
+   
+    archivo.HistorialPacienteWriter.guardarCitasEnArchivo(citas, "HistorialCitas.txt");
 }
    
 

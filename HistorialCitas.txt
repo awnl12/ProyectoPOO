@@ -1,0 +1,2 @@
+ID: 4, Paciente: 72361221, Médico: 87654321, Fecha: 2025-12-30, Hora: 11:00:00, Motivo: Cita Dermatologia
+ID: 5, Paciente: 72361221, Médico: 87654321, Fecha: 2025-12-12, Hora: 12:20:00, Motivo: Dermatologia
